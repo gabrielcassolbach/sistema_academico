@@ -11,13 +11,7 @@ private:
 	int num_alunos;
 	int contador_alunos;
 	Departamento* pDptoAssociado;
-	// Variáveis responsáveis por criara a lista de Alunos.
-	ElAluno* pElAlunoAtual; 
-	ElAluno* pElAlunoPrim;
-
-public:
-	Disciplina* pProx; // refazer com o ponteiro privado.
-	Disciplina* pAtras; // refazer com o ponteiro privado.
+	ElAluno* pElAlunoAtual; ElAluno* pElAlunoPrim;
 
 public:
 	Disciplina();

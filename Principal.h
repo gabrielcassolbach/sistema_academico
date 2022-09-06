@@ -9,7 +9,7 @@ class Principal
 private:
 
 	Universidade UTFPR;
-	Departamento DAINF; 
+	Departamento DAINF, DAELN, DAMAT; 
 	Disciplina COMP1, ALG, COMP2, TEC;
 	Aluno Gabriel, Enzo, Ian;
 

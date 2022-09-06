@@ -1,14 +1,14 @@
 #include "Departamento.h" 
 #include "Disciplina.h"
+#include "ElDisciplina.h"
 #include <string.h>
 
-// OBS: ao incluir o "Departamento.h" eu incluo todos os includes do "Departamento.h".
 Departamento::Departamento()
 {
 	strcpy_s(nome, "");
 	univFiliado = NULL;
-	pDisciplAtual = NULL;
-	pDisciplPrim = NULL;
+	pElDiscipAtual = NULL;
+    pElDiscipPrim = NULL;
 }
 
 Departamento::Departamento(const char* name)
@@ -18,9 +18,9 @@ Departamento::Departamento(const char* name)
 
 Departamento::~Departamento()
 {
-	pDisciplAtual = NULL;
-	pDisciplPrim = NULL;
 	univFiliado = NULL;
+	pElDiscipAtual = NULL;
+	pElDiscipPrim = NULL;
 }
 
 void Departamento::setNome(const char* name)
@@ -46,33 +46,28 @@ void Departamento::informa()
 
 void Departamento::incluaDisciplina(Disciplina* pd) 
 {
-	if (pDisciplPrim == NULL) {
-		pDisciplPrim = pd;
-		pDisciplAtual = pd;
+	ElDisciplina* paux = NULL; 
+	paux = new ElDisciplina(); 
+	paux->setDisciplina(pd); // Ligação entre o objeto e a disciplina.
+
+	if (pElDiscipPrim == NULL) {
+		pElDiscipAtual = paux;
+		pElDiscipPrim = paux;
 	}
-	else{
-		pDisciplAtual->pProx = pd; // tornar pProx público e criar função set e get.
-		pd->pAtras = pDisciplAtual; //"Encadeamento duplo."
-		pDisciplAtual = pd;
-	}	
+	else {
+		pElDiscipAtual -> pProx = paux; // Ligação com o próximo.
+		paux->pAtras = pElDiscipAtual;
+		pElDiscipAtual = paux;		
+	}
 }
 
 void Departamento::listedisciplinas()
 {
-	Disciplina* pAux = pDisciplPrim;
-	while (pAux != NULL) {
-		cout << "A disciplina " << pAux->getNome() 
-			<< " pertence ao departamento " << getNome() << endl;
-		pAux = pAux->pProx;
-	}
-}
-
-void Departamento::listedisciplinas2()
-{
-	Disciplina* pAux = pDisciplAtual;
-	while (pAux != NULL) {
-		cout << "A disciplina " << pAux->getNome()
-			<< " pertence ao departamento " << getNome() << endl;
-		pAux = pAux->pAtras;
+	ElDisciplina* paux;
+	paux = pElDiscipPrim;
+	while (paux != NULL) {
+		cout << "Disciplina: " << paux->getNome() 
+			<<  " departamento " << getNome() << endl;
+		paux = paux->pProx;
 	}
 }

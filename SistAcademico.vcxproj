@@ -23,6 +23,8 @@
     <ClInclude Include="Departamento.h" />
     <ClInclude Include="Disciplina.h" />
     <ClInclude Include="ElAluno.h" />
+    <ClInclude Include="ElDepartamento.h" />
+    <ClInclude Include="ElDisciplina.h" />
     <ClInclude Include="Pessoa.h" />
     <ClInclude Include="Principal.h" />
     <ClInclude Include="Universidade.h" />
@@ -32,6 +34,8 @@
     <ClCompile Include="Departamento.cpp" />
     <ClCompile Include="Disciplina.cpp" />
     <ClCompile Include="ElAluno.cpp" />
+    <ClCompile Include="ElDepartamento.cpp" />
+    <ClCompile Include="ElDisciplina.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pessoa.cpp" />
     <ClCompile Include="Principal.cpp" />

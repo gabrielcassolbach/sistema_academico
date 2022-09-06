@@ -9,19 +9,22 @@ Disciplina::Disciplina()
 	contador_alunos = 0;
 	pElAlunoAtual = NULL;
 	pElAlunoPrim = NULL;
-	pProx = NULL;
-	pAtras = NULL;
 	pDptoAssociado = NULL;
 	strcpy_s(nome, "");
 }
 
 Disciplina::~Disciplina()
 {
-	pElAlunoAtual = NULL;
-	pElAlunoPrim = NULL;
-	pProx = NULL;
-	pAtras = NULL;
-	pDptoAssociado = NULL;
+	ElAluno* paux = pElAlunoPrim;
+
+	while (pElAlunoPrim != NULL) 
+	{
+		paux = pElAlunoPrim->pProx;
+		delete pElAlunoPrim;;
+		pElAlunoPrim = paux;
+	}
+	pElAlunoAtual = NULL; pElAlunoPrim = NULL;
+	pDptoAssociado = NULL; 
 }
 
 void Disciplina::setNome(const char* name)
