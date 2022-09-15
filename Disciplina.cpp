@@ -3,16 +3,14 @@
 #include "Aluno.h"
 #include <string.h>
 
-Disciplina::Disciplina():
-ListaDeAlunos()
+Disciplina::Disciplina()
 {
 	num_alunos = 0; contador_alunos = 0;
 	pDptoAssociado = NULL;
 	strcpy(nome, "");
 }
 
-Disciplina::Disciplina(int na, char* c):
-ListaDeAlunos(na,c)
+Disciplina::Disciplina(int na, char* c)
 {
 	num_alunos = 45; contador_alunos = 0;
 	pDptoAssociado = NULL;
@@ -32,16 +30,6 @@ void Disciplina::setNome(const char* name)
 char* Disciplina::getNome()
 {
 	return nome;
-}
-
-void Disciplina::incluaAlunos(Aluno *pa)
-{
-	ListaDeAlunos.incluaAluno(pa);
-}
-
-void Disciplina::listeAlunos()
-{
-	ListaDeAlunos.listeAlunos();
 }
 
 void Disciplina::setDepartamento(Departamento* pdpto)

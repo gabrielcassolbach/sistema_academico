@@ -3,15 +3,13 @@
 #include "ElDisciplina.h"
 #include <string.h>
  
-Departamento::Departamento():
-ListadeDisciplinas()
+Departamento::Departamento()
 {
 	strcpy(nome, "");
 	univFiliado = NULL;
 }
 
-Departamento::Departamento(int nd, char* c):
-ListadeDisciplinas(nd, c)
+Departamento::Departamento(int nd, char* c)
 {
 	strcpy(nome, "");
 	univFiliado = NULL;
@@ -32,17 +30,6 @@ char* Departamento::getNome()
 {
 	return nome;
 }
-
-void Departamento::incluaDisciplina(Disciplina* pd) 
-{
-	ListadeDisciplinas.incluaDisciplina(pd);
-}
-
-void Departamento::listedisciplinas()
-{
-	ListadeDisciplinas.listeDisciplinas();
-}
-
 
 void Departamento::setUnivFiliado(Universidade* universidade)
 {

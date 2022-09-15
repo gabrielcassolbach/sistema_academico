@@ -38,6 +38,10 @@ void ListaDepartamentos::incluaDepartamento(Departamento *pd)
         if(pElDepartamentoPrim == NULL){
             pElDepartamentoPrim = paux;
             pElDepartamentoAtual = paux;
+        }else{
+            pElDepartamentoAtual -> pProx = paux;
+            paux -> pAtras = pElDepartamentoAtual;
+            paux = pElDepartamentoAtual;
         }
     }else{
         if(pd == NULL) cout << "parâmetro inválido!" << endl;

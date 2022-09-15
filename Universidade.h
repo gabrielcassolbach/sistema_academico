@@ -11,7 +11,6 @@ class Universidade
 private: 
 	char nome[30];
 	Departamento* pDptos[50];
-	ListaDepartamentos LDepartamentos;
 
 public:
 	Universidade(); 
@@ -21,6 +20,4 @@ public:
 	void setNome(const char* name);
 	char* getNome();
 	void setDptosFiliados(Departamento* departamento, int i);
-	void incluaDepartamentos(Departamento* pdep);
-	void listaDepartamentos();
 };

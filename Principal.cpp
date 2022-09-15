@@ -5,8 +5,6 @@
 #include "Departamento.h"
 #include "Disciplina.h"
 
-// Melhorou! Ainda tem alguns erros! Mas já está funcionando melhor!
-
 Principal::Principal() 
 {
 	LAlunos.inicializa();
@@ -51,8 +49,7 @@ void Principal::CadastreDepartamentos()
 		pDep = new Departamento();
 		pDep -> setNome(nomeDepartamento); 
 		pDep -> setUnivFiliado(pUniv);
-		LDepartamentos.incluaDepartamento(pDep);			
-		pUniv -> incluaDepartamentos(pDep);
+		LDepartamentos.incluaDepartamento(pDep);			 
 	}else {
 		cout << "Universidade inexistente" << endl;
 		getchar();
@@ -65,14 +62,13 @@ void Principal::CadastreDisciplinas()
 	Departamento* pDep = NULL; Disciplina* pDiscp = NULL;
 	cout << "Departamento da Disciplina: " << endl;
 	cin >> nomeDepartamento;
-	pDep = LDepartamentos.localizar(nomeDepartamento);
+	pDep = LDepartamentos.localizar(nomeDepartamento); // verifico se há um departamento para a nova disciplina.
 	if(pDep != NULL){
 		cout << "Disciplina: " << endl; cin >> nomeDisciplina;
-		pDiscp = new Disciplina(); 
-		pDiscp -> setNome(nomeDisciplina);
-		pDiscp -> setDepartamento(pDep); 
-		LDisciplinas.incluaDisciplina(pDiscp);
-		pDep -> incluaDisciplina(pDiscp); 
+		pDiscp = new Disciplina();  // Aloco um espaço de memória para a nova disciplina cadastrada.
+		pDiscp -> setNome(nomeDisciplina); // Inicializo  
+		pDiscp -> setDepartamento(pDep);   // inicializo as relações.
+		LDisciplinas.incluaDisciplina(pDiscp); // Incluo na Lista de Disciplinas que está no Principal.h
 	}else{
 		cout << "Departamento Inexistente." << endl;
 		getchar();
@@ -92,7 +88,6 @@ void Principal::CadastreAlunos()
 		pAluno = new Aluno();
 		pAluno -> inicializa(dia, mes, ano, nomeAluno); pAluno -> setRa(RA);
 		LAlunos.incluaAluno(pAluno); 
-		pDiscp -> incluaAlunos(pAluno);
 	}else{
 		cout << "Departamento Inexistente." << endl;
 		getchar();
