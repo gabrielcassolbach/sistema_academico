@@ -30,4 +30,3 @@ Departamento* ElDepartamento::getDepartamento()
 {
 	return pDep;
 }
-

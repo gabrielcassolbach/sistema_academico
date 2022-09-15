@@ -20,9 +20,8 @@ void Pessoa::inicializa(int dia, int mes, int ano, const char* nome)
 	mesP = mes;
 	anoP = ano;
 	idadeP = 0;
-	strcpy_s(nomeP, nome);
+	strcpy(nomeP, nome);
 }
-
 
 void Pessoa::calc_idade(int diaAT, int mesAT, int anoAT)
 {

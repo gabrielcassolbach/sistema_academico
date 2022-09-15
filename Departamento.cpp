@@ -2,36 +2,47 @@
 #include "Disciplina.h"
 #include "ElDisciplina.h"
 #include <string.h>
-
-Departamento::Departamento()
+ 
+Departamento::Departamento():
+ListadeDisciplinas()
 {
-	strcpy_s(nome, "");
+	strcpy(nome, "");
 	univFiliado = NULL;
-	pElDiscipAtual = NULL;
-    pElDiscipPrim = NULL;
 }
 
-Departamento::Departamento(const char* name)
+Departamento::Departamento(int nd, char* c):
+ListadeDisciplinas(nd, c)
 {
-	setNome(name);
+	strcpy(nome, "");
+	univFiliado = NULL;
 }
+
 
 Departamento::~Departamento()
 {
 	univFiliado = NULL;
-	pElDiscipAtual = NULL;
-	pElDiscipPrim = NULL;
 }
 
-void Departamento::setNome(const char* name)
+void Departamento::setNome(char* name)
 {
-	strcpy_s(nome, name);
+	strcpy(nome, name);
 }
 
 char* Departamento::getNome()
 {
 	return nome;
 }
+
+void Departamento::incluaDisciplina(Disciplina* pd) 
+{
+	ListadeDisciplinas.incluaDisciplina(pd);
+}
+
+void Departamento::listedisciplinas()
+{
+	ListadeDisciplinas.listeDisciplinas();
+}
+
 
 void Departamento::setUnivFiliado(Universidade* universidade)
 {
@@ -42,32 +53,4 @@ void Departamento::informa()
 {
 	cout << "O departamento " << getNome() << " esta filiado a universidade "
 		<< univFiliado->getNome() << endl;
-}
-
-void Departamento::incluaDisciplina(Disciplina* pd) 
-{
-	ElDisciplina* paux = NULL; 
-	paux = new ElDisciplina(); 
-	paux->setDisciplina(pd); // Ligação entre o objeto e a disciplina.
-
-	if (pElDiscipPrim == NULL) {
-		pElDiscipAtual = paux;
-		pElDiscipPrim = paux;
-	}
-	else {
-		pElDiscipAtual -> pProx = paux; // Ligação com o próximo.
-		paux->pAtras = pElDiscipAtual;
-		pElDiscipAtual = paux;		
-	}
-}
-
-void Departamento::listedisciplinas()
-{
-	ElDisciplina* paux;
-	paux = pElDiscipPrim;
-	while (paux != NULL) {
-		cout << "Disciplina: " << paux->getNome() 
-			<<  " departamento " << getNome() << endl;
-		paux = paux->pProx;
-	}
 }

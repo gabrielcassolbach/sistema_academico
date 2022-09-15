@@ -3,33 +3,30 @@
 #include "Aluno.h"
 #include <string.h>
 
-Disciplina::Disciplina()
+Disciplina::Disciplina():
+ListaDeAlunos()
 {
-	num_alunos = 45;
-	contador_alunos = 0;
-	pElAlunoAtual = NULL;
-	pElAlunoPrim = NULL;
+	num_alunos = 0; contador_alunos = 0;
 	pDptoAssociado = NULL;
-	strcpy_s(nome, "");
+	strcpy(nome, "");
+}
+
+Disciplina::Disciplina(int na, char* c):
+ListaDeAlunos(na,c)
+{
+	num_alunos = 45; contador_alunos = 0;
+	pDptoAssociado = NULL;
+	strcpy(nome, c);
 }
 
 Disciplina::~Disciplina()
 {
-	ElAluno* paux = pElAlunoPrim;
-
-	while (pElAlunoPrim != NULL) 
-	{
-		paux = pElAlunoPrim->pProx;
-		delete pElAlunoPrim;;
-		pElAlunoPrim = paux;
-	}
-	pElAlunoAtual = NULL; pElAlunoPrim = NULL;
 	pDptoAssociado = NULL; 
 }
 
 void Disciplina::setNome(const char* name)
 {
-	strcpy_s(nome, name);
+	strcpy(nome, name);
 }
 
 char* Disciplina::getNome()
@@ -37,40 +34,17 @@ char* Disciplina::getNome()
 	return nome;
 }
 
-void Disciplina::setDepartamento(Departamento* pdpto)
-{
-	pDptoAssociado = pdpto;
-}
-
 void Disciplina::incluaAlunos(Aluno *pa)
 {
-	ElAluno* paux = NULL;
-	paux = new ElAluno();
-	paux->setAluno(pa);
-
-	if ((contador_alunos < num_alunos) && (pa != NULL)) {
-		if (pElAlunoPrim == NULL) {
-			pElAlunoPrim = paux;
-			pElAlunoAtual = paux;
-		}
-		else {
-			pElAlunoAtual->pProx = paux;
-			paux->pAtras = pElAlunoAtual;
-			pElAlunoAtual = paux;
-		}
-		contador_alunos++;
-	}else {
-		cout << "Aluno nao incluido. Turma cheia!" << endl;
-	}
+	ListaDeAlunos.incluaAluno(pa);
 }
 
 void Disciplina::listeAlunos()
 {
-	ElAluno* paux;
-	paux = pElAlunoPrim;
-	while (paux != NULL) {
-		cout << "Aluno " << paux->getNome() << "matriculado na disciplina "
-			<< nome << endl;
-		paux = paux->pProx;
-	}
+	ListaDeAlunos.listeAlunos();
+}
+
+void Disciplina::setDepartamento(Departamento* pdpto)
+{
+	pDptoAssociado = pdpto;
 }
