@@ -10,14 +10,16 @@ class Universidade
 {
 private: 
 	char nome[30];
-	Departamento* pDptos[50];
-
+	ListaDepartamentos LUnivDep;
+ 
 public:
 	Universidade(); 
-	Universidade(int nd, char* c); 
+	Universidade(char* c); 
 	~Universidade(); 
-	void informa(int j);
 	void setNome(const char* name);
 	char* getNome();
-	void setDptosFiliados(Departamento* departamento, int i);
+	void setDptosFiliados(Departamento* departamento);
 };
+
+
+

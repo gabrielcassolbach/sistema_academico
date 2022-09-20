@@ -5,14 +5,13 @@
 class Aluno;
 class ElAluno;
 class Departamento;
-class ListaAlunos;
 
 class Disciplina 
 {	
 private:
-	char nome[150];
-	int num_alunos; int contador_alunos;
+	char nome[150]; int num_alunos; int contador_alunos;
 	Departamento* pDptoAssociado;
+	ListaAlunos LAlunosDiscpl;
 	
 public:
 	Disciplina();
@@ -21,4 +20,5 @@ public:
 	void setNome(const char* name); 
 	char* getNome();
 	void setDepartamento(Departamento* pdpto);
+	void setAlunosFiliados(Aluno* pAluno);
 };

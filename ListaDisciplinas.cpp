@@ -1,4 +1,5 @@
 #include "ListaDisciplinas.h"
+#include "Disciplina.h"
 #include "ElDisciplina.h"
 #include <string.h>
 
@@ -73,3 +74,4 @@ Disciplina* ListaDisciplinas::localizar(char* n)
     }  
     return NULL;
 }
+

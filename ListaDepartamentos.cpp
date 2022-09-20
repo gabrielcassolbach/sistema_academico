@@ -1,5 +1,6 @@
 #include "ListaDepartamentos.h"
 #include "ElDepartamento.h"
+#include "Departamento.h"
 #include <string.h>
 
 ListaDepartamentos::ListaDepartamentos()
@@ -68,3 +69,4 @@ Departamento* ListaDepartamentos::localizar(char* n)
     }
     return NULL;
 }
+

@@ -1,6 +1,7 @@
 #include "ListaUniversidades.h"
+#include "Departamento.h"
 #include <string.h>
-
+ 
 ListaUniversidades::ListaUniversidades(const char* c)
 {
     strcpy(nome, c); num_univ = 45; contador_univ = 0;  
@@ -64,3 +65,4 @@ Universidade* ListaUniversidades::localizar(char* n)
     } 
     return NULL;
 }
+

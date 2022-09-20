@@ -7,7 +7,7 @@ class Departamento;
 class ElDepartamento 
 {
 private:
-	Departamento* pDep; // gera a conexão.
+	Departamento* pDep; // gera a conexao.
 
 public:
 	ElDepartamento* pProx;

@@ -6,6 +6,8 @@
 #include "ListaUniversidades.h"
 using namespace std;
 
+// Só desaloque os alunos uma vez. -> analisar bem esse código!..Revisão! 
+
 class Principal
 {
 private:

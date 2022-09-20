@@ -41,3 +41,8 @@ void Departamento::informa()
 	cout << "O departamento " << getNome() << " esta filiado a universidade "
 		<< univFiliado->getNome() << endl;
 }
+
+void Departamento::setDiscplFiliado(Disciplina* pdisciplina)
+{
+	ListaDiscplDep.incluaDisciplina(pdisciplina);
+}

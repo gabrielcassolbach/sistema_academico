@@ -36,3 +36,8 @@ void Disciplina::setDepartamento(Departamento* pdpto)
 {
 	pDptoAssociado = pdpto;
 }
+
+void Disciplina::setAlunosFiliados(Aluno* aluno)
+{
+	LAlunosDiscpl.incluaAluno(aluno);
+}
