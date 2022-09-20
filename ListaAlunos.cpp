@@ -27,16 +27,13 @@ ListaAlunos::ListaAlunos(int na, char *n)
 
 ListaAlunos::~ListaAlunos()
 {
-    ElAluno *paux1 = pElAlunoPrim;
-    ElAluno *paux2 = paux1;
-    while (paux1 != NULL)
-    {
+    ElAluno *paux1 = pElAlunoPrim; ElAluno *paux2 = paux1;
+    while (paux1 != NULL){
         paux2 = paux1->pProx;
         delete (paux1);
         paux1 = paux2;
     }
-    pElAlunoPrim = NULL;
-    pElAlunoAtual = NULL;
+    pElAlunoPrim = NULL; pElAlunoAtual = NULL;
 }
 
 void ListaAlunos::incluaAluno(Aluno *pa)

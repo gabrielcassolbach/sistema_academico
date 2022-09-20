@@ -15,9 +15,8 @@ void ListaUniversidades::inicializa()
 
 ListaUniversidades::~ListaUniversidades()
 {
-    ElUniversidade* paux1 = pElUniversidadePrim;
-    ElUniversidade* paux2 = paux1;
-    while(paux1 != NULL){
+    ElUniversidade* paux1 = pElUniversidadePrim; ElUniversidade* paux2 = paux1;
+    while(paux1 != NULL) {
         paux2 = paux1 -> pProx;
         delete(paux1);
         paux1 = paux2;

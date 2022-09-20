@@ -2,6 +2,8 @@
 #include "Pessoa.h"
 #include "Aluno.h"
 #include "Universidade.h"
+#include "ElDepartamento.h"
+#include "ElDisciplina.h"
 #include "Departamento.h"
 #include "Disciplina.h"
 
@@ -20,10 +22,10 @@ void Principal::executar()
 
 Principal::~Principal()
 {
-	LAlunos.~ListaAlunos();
-	LDisciplinas.~ListaDisciplinas();
-	LDepartamentos.~ListaDepartamentos();
-	LUniversidades.~ListaUniversidades();
+	deleteAlunos();
+	deleteDepartamentos();
+	deleteDisciplinas();
+	deleteUniversidades();
 }
 
 void Principal::CadastreUniversidades()
@@ -32,7 +34,7 @@ void Principal::CadastreUniversidades()
 	Universidade *pUniv = NULL;
 	cout << "Universidade " << endl;
 	cin >> nomeUniv;
-	pUniv = new Universidade(); // deletando na destruturora da principal.
+	pUniv = new Universidade(); 
 	pUniv->setNome(nomeUniv);
 	LUniversidades.incluaUniversidade(pUniv);
 }
@@ -50,7 +52,7 @@ void Principal::CadastreDepartamentos()
 	{
 		cout << "Departamento: " << endl;
 		cin >> nomeDepartamento;
-		pDep = new Departamento(); // tem que deletar esse departamento.
+		pDep = new Departamento(); 
 		pDep->setNome(nomeDepartamento);
 		pDep->setUnivFiliado(pUniv);
 		LDepartamentos.incluaDepartamento(pDep);
@@ -112,6 +114,50 @@ void Principal::CadastreAlunos()
 		cout << "Departamento Inexistente." << endl;
 		getchar();
 	}
+}
+
+void Principal::deleteAlunos()
+{
+	ElAluno *paux1 = LAlunos.pElAlunoPrim; ElAluno *paux2 = paux1;
+    while (paux1 != NULL){
+        paux2 = paux1->pProx;
+        delete (paux1 -> getAluno());
+        paux1 = paux2;
+	}
+	// ok!
+}
+
+void Principal::deleteDepartamentos()
+{
+	ElDepartamento *paux1 = LDepartamentos.pElDepartamentoPrim; ElDepartamento *paux2 = paux1;
+    while (paux1 != NULL){
+        paux2 = paux1->pProx;
+        delete (paux1 -> getDepartamento());
+        paux1 = paux2;
+	}
+	// ok!
+}
+
+void Principal::deleteUniversidades()
+{
+	ElUniversidade *paux1 = LUniversidades.pElUniversidadePrim; ElUniversidade *paux2 = paux1;
+    while (paux1 != NULL){
+        paux2 = paux1->pProx;
+        delete (paux1 -> getUniv());
+        paux1 = paux2;
+	}
+	// ok!
+}
+
+void Principal::deleteDisciplinas()
+{
+	ElDisciplina *paux1 = LDisciplinas.pElDisciplinaPrim; ElDisciplina *paux2 = paux1;
+    while (paux1 != NULL){
+        paux2 = paux1->pProx;
+        delete (paux1 -> getDisciplina());
+        paux1 = paux2;
+	}
+	// ok!
 }
 
 void Principal::Menu()

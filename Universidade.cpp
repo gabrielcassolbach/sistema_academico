@@ -8,7 +8,6 @@ Universidade::Universidade()
 	strcpy(nome, "");
 }
 
-
 Universidade::Universidade(char* c)
 {
 	strcpy(nome, c);
@@ -16,7 +15,6 @@ Universidade::Universidade(char* c)
 
 Universidade::~Universidade()
 {
-	//
 }
 
 void Universidade::setNome(const char* name)

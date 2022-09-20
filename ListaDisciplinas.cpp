@@ -20,12 +20,12 @@ ListaDisciplinas::ListaDisciplinas(int nd, char* c)
 {
     contadorDisciplinas = 0; num_disciplinas = nd;
     strcpy(nome, c);
-    pElDisciplinaPrim = NULL;
-    pElDisciplinaAtual = NULL;
+    pElDisciplinaPrim = NULL; pElDisciplinaAtual = NULL;
 }
  
 ListaDisciplinas::~ListaDisciplinas()
 {
+    // Aqui estou deletando os Elementos.
     ElDisciplina* paux1 = pElDisciplinaPrim; ElDisciplina* paux2 = paux1;
     while(paux1 != NULL){
         paux2 = paux1 -> pProx; 

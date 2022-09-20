@@ -1,6 +1,7 @@
 #include "Departamento.h" 
 #include "Disciplina.h"
 #include "ElDisciplina.h"
+#include "ListaDepartamentos.h"
 #include <string.h>
  
 Departamento::Departamento()
@@ -14,7 +15,6 @@ Departamento::Departamento(int nd, char* c)
 	strcpy(nome, "");
 	univFiliado = NULL;
 }
-
 
 Departamento::~Departamento()
 {

@@ -6,7 +6,7 @@
 #include "ListaUniversidades.h"
 using namespace std;
 
-// Só desaloque os alunos uma vez. -> analisar bem esse código!..Revisão! 
+// Código em revisão! 
 
 class Principal
 {
@@ -34,6 +34,11 @@ public:
 	void CadastreDepartamentos();
 	void CadastreDisciplinas();
 	void CadastreAlunos();
+	// Métodos responsáveis por deletar objetos.
+	void deleteAlunos();
+	void deleteDepartamentos();
+	void deleteUniversidades();
+	void deleteDisciplinas();
 	// Métodos responsáveis pelo menu do sistema acadêmico.
 	void Menu();
 	void MenuCadastro();

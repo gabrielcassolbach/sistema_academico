@@ -22,9 +22,10 @@ ListaDepartamentos::ListaDepartamentos(int nd, char* c)
 
 ListaDepartamentos::~ListaDepartamentos()
 {
+    // deleto somente os elementos.
     ElDepartamento* paux1 = pElDepartamentoAtual; ElDepartamento* paux2 = paux1;
-    while(paux1 != NULL){
-        paux2 = paux1 -> pProx; 
+    while(paux1 != NULL) {
+        paux2 = paux1 -> pProx;
         delete(paux1);
         paux1 = paux2;
     }   
@@ -42,7 +43,7 @@ void ListaDepartamentos::incluaDepartamento(Departamento *pd)
         }else{
             pElDepartamentoAtual -> pProx = paux;
             paux -> pAtras = pElDepartamentoAtual;
-            paux = pElDepartamentoAtual;
+            pElDepartamentoAtual = paux;
         }
     }else{
         if(pd == NULL) cout << "parâmetro inválido!" << endl;
@@ -69,4 +70,3 @@ Departamento* ListaDepartamentos::localizar(char* n)
     }
     return NULL;
 }
-

@@ -8,8 +8,8 @@ private:
 	Disciplina* pD;
 
 public:
-	ElDisciplina* pProx; // refazer com o ponteiro privado.
-	ElDisciplina* pAtras; // refazer com o ponteiro privado.
+	ElDisciplina* pProx; // refazer utilizando um gabarito (template) -> para Elemento.
+	ElDisciplina* pAtras; // refazer utilizando um gabarito (template) -> para Elemento.
 
 public:
 	ElDisciplina();
