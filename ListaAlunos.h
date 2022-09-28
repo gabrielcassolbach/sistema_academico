@@ -1,25 +1,19 @@
 #pragma once
-#include <iostream>
-using namespace std;
-
-#include "ElAluno.h"
+#include "Lista.h"
 #include "Aluno.h"
- 
+
 class ListaAlunos
 {
 private:
-    int contador_alunos; int num_alunos;
-    char nome[150];
-
-public:
-    ElAluno* pElAlunoPrim;
-    ElAluno* pElAlunoAtual;
+    Lista<Aluno> LAlunos;    
 
 public:
     ListaAlunos();
-    ListaAlunos (int na, char* n);
-    ~ListaAlunos ();
-    void inicializa();
+    ~ListaAlunos();
+
+    void limpaLista();
     void incluaAluno(Aluno* pa);
+    
     void listeAlunos();
+    void deleteAlunos();
 };

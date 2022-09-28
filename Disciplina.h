@@ -1,24 +1,26 @@
 #pragma once
-#include "Departamento.h"
 #include "ListaAlunos.h"
-
-class Aluno;
-class ElAluno;
-class Departamento;
 
 class Disciplina 
 {	
 private:
-	char nome[150]; int num_alunos; int contador_alunos;
-	Departamento* pDptoAssociado;
-	ListaAlunos LAlunosDiscpl;
+	int id;
+	char nome[150]; 
+	int num_alunos; 
+	int contador_alunos;
+	ListaAlunos LAlunos;
 	
 public:
-	Disciplina();
 	Disciplina(int na, char* c);
+	Disciplina();
 	~Disciplina();
-	void setNome(const char* name); 
+	
+	void setNome(char* name); 
 	char* getNome();
-	void setDepartamento(Departamento* pdpto);
-	void setAlunosFiliados(Aluno* pAluno);
+	
+	void setId(int i);
+	int getId();
+
+	void incluaAluno(Aluno* pa);
+	void listeAlunos();
 };

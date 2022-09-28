@@ -1,28 +1,23 @@
+#include "stdafx.h"
 #include "Disciplina.h"
-#include "ElAluno.h"
-#include "Aluno.h"
-#include <string.h>
 
 Disciplina::Disciplina()
 {
 	num_alunos = 0; contador_alunos = 0;
-	pDptoAssociado = NULL;
 	strcpy(nome, "");
 }
 
 Disciplina::Disciplina(int na, char* c)
 {
 	num_alunos = 45; contador_alunos = 0;
-	pDptoAssociado = NULL;
 	strcpy(nome, c);
 }
 
 Disciplina::~Disciplina()
 {
-	pDptoAssociado = NULL; 
 }
 
-void Disciplina::setNome(const char* name)
+void Disciplina::setNome(char* name)
 {
 	strcpy(nome, name);
 }
@@ -32,12 +27,23 @@ char* Disciplina::getNome()
 	return nome;
 }
 
-void Disciplina::setDepartamento(Departamento* pdpto)
+
+void Disciplina::setId(int i)
 {
-	pDptoAssociado = pdpto;
+	id = i;
 }
 
-void Disciplina::setAlunosFiliados(Aluno* aluno)
+int Disciplina::getId()
 {
-	LAlunosDiscpl.incluaAluno(aluno);
+	return id;
+}
+
+void Disciplina::incluaAluno(Aluno* pa)
+{
+	LAlunos.incluaAluno(pa);
+}
+
+void Disciplina::listeAlunos()
+{
+	LAlunos.listeAlunos();
 }

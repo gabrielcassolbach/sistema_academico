@@ -1,26 +1,19 @@
 #pragma once
-#include <iostream>
-using namespace std;
-
-class ElDisciplina;
-class Disciplina;
+#include "stdafx.h"
+#include "Lista.h"
+#include "Disciplina.h"
 
 class ListaDisciplinas
 {
-private: 
-    int contadorDisciplinas; int num_disciplinas;
-    char nome[150];
-
-public:
-    ElDisciplina* pElDisciplinaPrim;
-    ElDisciplina* pElDisciplinaAtual;
+private:
+    Lista <Disciplina> LDisciplinas;
 
 public:
     ListaDisciplinas();
-    ListaDisciplinas(int nd, char* c);
     ~ListaDisciplinas();
-    void inicializa();
+
+    void limparLista();
     void incluaDisciplina(Disciplina* pd);
+    
     void listeDisciplinas();
-    Disciplina* localizar(char* n);
 };

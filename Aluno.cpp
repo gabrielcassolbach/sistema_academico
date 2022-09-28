@@ -1,6 +1,7 @@
+#include "stdafx.h"
 #include "Aluno.h"
 
-Aluno::Aluno(int diaNa, int mesNa, int anoNa, const char* nome) :
+Aluno::Aluno(int diaNa, int mesNa, int anoNa, char* nome) :
 Pessoa(diaNa, mesNa, anoNa, nome)
 {
 	RA = 0;

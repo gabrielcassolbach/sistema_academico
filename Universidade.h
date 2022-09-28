@@ -1,25 +1,17 @@
 #pragma once
-#include <iostream>
+#include "stdafx.h"
 #include "ListaDepartamentos.h"
-using namespace std;
 
-class Departamento;
-class ElDepartamento;
- 
 class Universidade
 {
-private: 
-	char nome[30];
-	ListaDepartamentos LUnivDep;
- 
+private:
+    char nome[150];
+    ListaDepartamentos LDepartamentos;
+
 public:
-	Universidade(); 
-	Universidade(char* c); 
-	~Universidade(); 
-	void setNome(const char* name);
-	char* getNome();
-	void setDptosFiliados(Departamento* departamento);
+    Universidade();
+    ~Universidade();
+
+    void setNome(char* name);
+    char* getNome();
 };
-
-
-

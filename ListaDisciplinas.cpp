@@ -1,77 +1,39 @@
 #include "ListaDisciplinas.h"
-#include "Disciplina.h"
-#include "ElDisciplina.h"
-#include <string.h>
 
 ListaDisciplinas::ListaDisciplinas()
 {
-    contadorDisciplinas = 0; num_disciplinas = 0;
-    strcpy(nome, "");
-    pElDisciplinaPrim = NULL;
-    pElDisciplinaAtual = NULL;
+    //Empty!
 }
 
-void ListaDisciplinas::inicializa()
-{
-    ListaDisciplinas();
-}
-
-ListaDisciplinas::ListaDisciplinas(int nd, char* c)
-{
-    contadorDisciplinas = 0; num_disciplinas = nd;
-    strcpy(nome, c);
-    pElDisciplinaPrim = NULL; pElDisciplinaAtual = NULL;
-}
- 
 ListaDisciplinas::~ListaDisciplinas()
 {
-    // Aqui estou deletando os Elementos.
-    ElDisciplina* paux1 = pElDisciplinaPrim; ElDisciplina* paux2 = paux1;
-    while(paux1 != NULL){
-        paux2 = paux1 -> pProx; 
-        delete(paux1);
-        paux1 = paux2;
-    }   
-    pElDisciplinaPrim = NULL; pElDisciplinaAtual = NULL;
+    limparLista();
+}
+
+void ListaDisciplinas::limparLista()
+{
+    LDisciplinas.limpar();
 }
 
 void ListaDisciplinas::incluaDisciplina(Disciplina* pd)
 {
-    if(contadorDisciplinas <= num_disciplinas && pd != NULL){
-        ElDisciplina* paux = NULL;
-        paux = new ElDisciplina(); 
-        paux -> setDisciplina(pd);
-        if(pElDisciplinaPrim == NULL){
-            pElDisciplinaAtual = paux;
-            pElDisciplinaPrim = paux;
-        }else{
-            pElDisciplinaAtual -> pProx = paux;
-            paux -> pAtras = pElDisciplinaAtual;
-            pElDisciplinaAtual = paux;
-        }
+    if(pd != NULL){
+        LDisciplinas.incluaObjeto(pd);
     }else{
-        if(pd == NULL) cout << "parâmetro inválido!" << endl;
-        else cout << "Turma cheia! Não é possível incluir mais alunos." << endl;
-    }
+        cout << "not included discipline!" << endl;
+        cout << "invalid pointer" << endl;
+    }    
 }
 
 void ListaDisciplinas::listeDisciplinas()
 {
-    ElDisciplina* t = pElDisciplinaPrim;
-    while(t != NULL){
-        cout << "Disciplina: " << t -> getNome() << endl;
-        t = t->pProx;
+    Elemento<Disciplina>* pElaux = LDisciplinas.getPrimeiro();
+    Disciplina* pDaux;
+    while(pElaux != NULL){
+        pDaux = pElaux -> getTipo();
+        cout << "Disciplina: " << pDaux -> getNome()
+            << "-> " << pDaux -> getId() << endl;
+        pElaux = pElaux -> getProximo();
     }
-    getchar();
 }
-
-Disciplina* ListaDisciplinas::localizar(char* n)
-{
-    ElDisciplina* paux = pElDisciplinaPrim;
-    while(paux != NULL){
-        if(0 == strcmp(paux -> getNome(), n)) return paux ->getDisciplina();
-        else paux = paux -> pProx;       
-    }  
-    return NULL;
-}
-
+    

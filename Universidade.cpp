@@ -1,33 +1,21 @@
 #include "Universidade.h"
-#include "Departamento.h"
-#include "ElDepartamento.h"
-#include <string.h>
- 
+
 Universidade::Universidade()
 {
-	strcpy(nome, "");
-}
-
-Universidade::Universidade(char* c)
-{
-	strcpy(nome, c);
+    //empty!
 }
 
 Universidade::~Universidade()
 {
+    LDepartamentos.limpaLista();
 }
 
-void Universidade::setNome(const char* name)
+void Universidade::setNome(char* name)
 {
-	strcpy(nome, name);
+    strcpy(nome, name);
 }
 
 char* Universidade::getNome()
 {
-	return nome;
-}
-
-void Universidade::setDptosFiliados(Departamento* departamento)
-{
-	LUnivDep.incluaDepartamento(departamento);
+    return nome;
 }

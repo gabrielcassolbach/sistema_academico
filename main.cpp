@@ -1,10 +1,8 @@
-#include <iostream>
+#include "stdafx.h" 
 #include "Principal.h"
-using namespace std;
- 
-int main()
-{
-	Principal objetoPrincipal;
-	objetoPrincipal.executar();
+
+int main(){
+	Principal sistema_academico;
+	sistema_academico.executar();
 	return 0;
 }

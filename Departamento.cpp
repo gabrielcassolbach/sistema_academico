@@ -1,48 +1,21 @@
-#include "Departamento.h" 
-#include "Disciplina.h"
-#include "ElDisciplina.h"
-#include "ListaDepartamentos.h"
-#include <string.h>
- 
+#include "Departamento.h"
+
 Departamento::Departamento()
 {
-	strcpy(nome, "");
-	univFiliado = NULL;
-}
-
-Departamento::Departamento(int nd, char* c)
-{
-	strcpy(nome, "");
-	univFiliado = NULL;
+    // Empty!
 }
 
 Departamento::~Departamento()
 {
-	univFiliado = NULL;
+    LDisciplinas.limparLista();
 }
 
 void Departamento::setNome(char* name)
 {
-	strcpy(nome, name);
+    strcpy(nome, name);
 }
 
 char* Departamento::getNome()
 {
-	return nome;
-}
-
-void Departamento::setUnivFiliado(Universidade* universidade)
-{
-	univFiliado = universidade;
-}
-
-void Departamento::informa()
-{
-	cout << "O departamento " << getNome() << " esta filiado a universidade "
-		<< univFiliado->getNome() << endl;
-}
-
-void Departamento::setDiscplFiliado(Disciplina* pdisciplina)
-{
-	ListaDiscplDep.incluaDisciplina(pdisciplina);
+    return nome;
 }

@@ -1,76 +1,46 @@
+#include "stdafx.h"
 #include "ListaAlunos.h"
-#include "Aluno.h"
-#include <string.h>
 
 ListaAlunos::ListaAlunos()
 {
-    contador_alunos = 0;
-    num_alunos = 0;
-    strcpy(nome, "");
-    pElAlunoPrim = NULL;
-    pElAlunoAtual = NULL;
-}
-
-void ListaAlunos::inicializa()
-{
-    ListaAlunos();
-}
-
-ListaAlunos::ListaAlunos(int na, char *n)
-{
-    contador_alunos = 0;
-    num_alunos = na;
-    strcpy(nome, n);
-    pElAlunoPrim = NULL;
-    pElAlunoAtual = NULL;
+     // empty!
 }
 
 ListaAlunos::~ListaAlunos()
 {
-    ElAluno *paux1 = pElAlunoPrim; ElAluno *paux2 = paux1;
-    while (paux1 != NULL){
-        paux2 = paux1->pProx;
-        delete (paux1);
-        paux1 = paux2;
-    }
-    pElAlunoPrim = NULL; pElAlunoAtual = NULL;
+    limpaLista();
 }
 
-void ListaAlunos::incluaAluno(Aluno *pa)
+void ListaAlunos::limpaLista()
 {
-    if (num_alunos <= contador_alunos && pa != NULL)
-    {
-        ElAluno *paux = NULL;
-        paux = new ElAluno();
-        paux->setAluno(pa);
-        if (pElAlunoPrim == NULL)
-        {
-            pElAlunoPrim = paux;
-            pElAlunoAtual = paux;
-        }
-        else
-        {
-            pElAlunoAtual->pProx = paux;
-            paux->pAtras = pElAlunoAtual;
-            pElAlunoAtual = paux;
-        }
-    }
-    else
-    {
-        if (pa == NULL)
-            cout << "parâmetro inválido!" << endl;
-        else
-            cout << "Turma cheia! Não é possível incluir mais alunos." << endl;
-    }
+    LAlunos.limpar();
 }
+
+void ListaAlunos::incluaAluno(Aluno* pa)
+{
+    if(pa != NULL){
+        LAlunos.incluaObjeto(pa);
+    }else{
+        cout << "not included student!" << endl;
+        cout << "invalid pointer" << endl;
+    }
+}   
 
 void ListaAlunos::listeAlunos()
 {
-    ElAluno *t = pElAlunoPrim;
-    while (t != NULL)
+    Elemento <Aluno>* pElaux = NULL;  Aluno* pAlaux = NULL;
+    pElaux = LAlunos.getPrimeiro();
+    while (pElaux != NULL)
     {
-        cout << "Aluno " << t->getNome() << endl;
-        t = t->pProx;
+        pAlaux = pElaux -> getTipo();
+        cout << "Aluno " << pAlaux -> getNome()
+            << "com RA " << pAlaux -> getRa()
+            << "." << endl;
+            pElaux = pElaux -> getProximo();
     }
-    getchar();
+}
+
+void ListaAlunos::deleteAlunos()
+{
+    LAlunos.deleteObjetos();
 }

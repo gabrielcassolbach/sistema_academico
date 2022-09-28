@@ -7,8 +7,8 @@ private:
 	int RA;
 
 public:
-	Aluno();
-	Aluno(int diaNa, int mesNa, int anoNa, const char* nome = "");
+	Aluno();	
+	Aluno(int diaNa, int mesNa, int anoNa, char* nome);
 	~Aluno();
 
 	void informa();
