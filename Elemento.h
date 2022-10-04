@@ -6,7 +6,7 @@ class Elemento
 private:
     Elemento <TIPO>* pProximo;
     Elemento <TIPO>* pAnterior;
-    TIPO* pInfo;
+    TIPO* pTipo;
     
 public:
     Elemento();
@@ -14,7 +14,7 @@ public:
 
     void setProximo(Elemento<TIPO>* pp);
     void setAnterior(Elemento<TIPO>* pa);
-    void setInfo(Elemento<TIPO>* pi);
+    void setTipo(TIPO* pi);
 
     Elemento <TIPO>* getProximo(); 
     Elemento <TIPO>* getAnterior();
@@ -29,13 +29,13 @@ public:
 template <class TIPO>
 Elemento<TIPO>::Elemento()
 {
-    pProximo = NULL; pAnterior = NULL; pInfo = NULL;
+    pProximo = NULL; pAnterior = NULL; pTipo = NULL;
 }
 
 template <class TIPO>
 Elemento<TIPO>::~Elemento()
 {
-    pProximo = NULL; pAnterior = NULL; pInfo = NULL;
+    pProximo = NULL; pAnterior = NULL; pTipo = NULL;
 }
 
 template <class TIPO>
@@ -51,9 +51,9 @@ void Elemento<TIPO>::setAnterior(Elemento<TIPO>* pa)
 }
 
 template <class TIPO>
-void Elemento<TIPO>::setInfo(Elemento<TIPO>* pi)
+void Elemento<TIPO>::setTipo(TIPO* pi)
 {
-    pInfo = pi;
+    pTipo = pi;
 }
 
 template <class TIPO>
@@ -71,5 +71,6 @@ Elemento <TIPO>* Elemento<TIPO>::getAnterior()
 template <class TIPO>
 TIPO* Elemento<TIPO>::getTipo()
 {
-    return pInfo;
+    return pTipo;
 }
+

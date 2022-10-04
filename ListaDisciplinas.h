@@ -14,6 +14,9 @@ public:
 
     void limparLista();
     void incluaDisciplina(Disciplina* pd);
-    
+     
     void listeDisciplinas();
+    void deleteDisciplinas();
+
+    Disciplina* localizar(char* n);
 };

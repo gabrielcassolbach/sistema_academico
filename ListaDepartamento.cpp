@@ -35,3 +35,13 @@ void ListaDepartamentos::listeDepartamentos()
         pElDep = pElDep -> getProximo();
     }      
 }
+ 
+void ListaDepartamentos::deleteDepartamentos()
+{
+    LDepartamentos.deleteObjetos();
+}
+
+Departamento* ListaDepartamentos::localizar(char* n)
+{
+    return LDepartamentos.localizar(n);
+}

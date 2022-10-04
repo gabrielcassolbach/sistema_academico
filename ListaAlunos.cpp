@@ -34,12 +34,12 @@ void ListaAlunos::listeAlunos()
     {
         pAlaux = pElaux -> getTipo();
         cout << "Aluno " << pAlaux -> getNome()
-            << "com RA " << pAlaux -> getRa()
-            << "." << endl;
-            pElaux = pElaux -> getProximo();
+            << " com RA " << pAlaux -> getRa()
+            << endl;
+        pElaux = pElaux -> getProximo();
     }
 }
-
+ 
 void ListaAlunos::deleteAlunos()
 {
     LAlunos.deleteObjetos();

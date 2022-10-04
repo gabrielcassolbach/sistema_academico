@@ -15,5 +15,8 @@ public:
     void limparLista();
     void incluaUniversidade(Universidade* pu);
 
-    void listar();
+    void listeUniversidades();
+    void deleteUniversidades();
+
+    Universidade* localizar(char* n);
 };

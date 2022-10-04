@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -Wall
 LDFLAGS =
 OBJFILES = *.cpp
-TARGET = sistema_academico
+TARGET = z_sistema_academico
 
 all: $(TARGET)
 

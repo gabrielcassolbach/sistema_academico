@@ -16,4 +16,7 @@ public:
     void incluaDepartamento(Departamento* pd);
 
     void listeDepartamentos();
+    void deleteDepartamentos();
+
+    Departamento* localizar(char* n);
 };

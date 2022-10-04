@@ -21,11 +21,12 @@ public:
     void setPrimeiro(Elemento<TIPO>* pp);
     void setAtual(Elemento<TIPO>* pa);
 
-    /* nova função */ 
     void deleteObjetos();
 
     Elemento<TIPO>* getPrimeiro();
     Elemento<TIPO>* getAtual();
+
+    TIPO* localizar(char* n);
 };
 
 /*------------------------------------------------------------------------------------------------------*/
@@ -43,7 +44,7 @@ Lista<TIPO>::~Lista()
 {
     limpar();
 }
-
+ 
 template <class TIPO>
 void Lista<TIPO>::setPrimeiro(Elemento<TIPO>* pp)
 {
@@ -73,12 +74,12 @@ void Lista<TIPO>::inicializa()
 {
     pPrimeiro = NULL; pAtual = NULL;
 }
-
+ 
 template <class TIPO>
 void Lista<TIPO>::limpar()
 {
-    Elemento <TIPO>* pAux1;
-    Elemento <TIPO>* pAux2;
+    Elemento <TIPO>* paux1;
+    Elemento <TIPO>* paux2;
 
     paux1 = pPrimeiro;
     paux2 = paux1;
@@ -99,7 +100,7 @@ bool Lista<TIPO>::incluaObjeto(TIPO* pObjeto)
     if(pObjeto != NULL){
         Elemento <TIPO>* pElemento = NULL;
         pElemento = new Elemento<TIPO> ();
-        pElemento->setInfo(pObjeto);
+        pElemento->setTipo(pObjeto);
         incluaElemento(pElemento);
         return true;
     }else{
@@ -136,8 +137,19 @@ void Lista<TIPO>::deleteObjetos()
     Elemento<TIPO>* pElaux = pPrimeiro;
     TIPO* pObjeto;
     while(pElaux != NULL){
-        pObjeto = pPrimeiro -> getTipo();
+        pObjeto = pElaux -> getTipo();
         delete(pObjeto);
         pElaux = pElaux -> getProximo();
     }    
+}
+
+template <class TIPO>
+TIPO* Lista<TIPO>::localizar(char* n)
+{
+    Elemento<TIPO>* paux = pPrimeiro;
+    while(paux != NULL){
+        if(0 == strcmp((paux -> getTipo())->getNome(), n)) return paux -> getTipo();
+        paux = paux -> getProximo();
+    } 
+    return NULL;
 }

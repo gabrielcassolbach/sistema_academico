@@ -4,7 +4,7 @@ ListaDisciplinas::ListaDisciplinas()
 {
     //Empty!
 }
-
+ 
 ListaDisciplinas::~ListaDisciplinas()
 {
     limparLista();
@@ -31,9 +31,17 @@ void ListaDisciplinas::listeDisciplinas()
     Disciplina* pDaux;
     while(pElaux != NULL){
         pDaux = pElaux -> getTipo();
-        cout << "Disciplina: " << pDaux -> getNome()
-            << "-> " << pDaux -> getId() << endl;
+        cout << "Disciplina: " << pDaux -> getNome() << endl;
         pElaux = pElaux -> getProximo();
     }
+} 
+
+void ListaDisciplinas::deleteDisciplinas()
+{
+    LDisciplinas.deleteObjetos();
 }
-    
+
+Disciplina* ListaDisciplinas::localizar(char* n)
+{
+    return LDisciplinas.localizar(n);   
+}

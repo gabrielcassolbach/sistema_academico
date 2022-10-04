@@ -3,7 +3,7 @@
 ListaUniversidades::ListaUniversidades()
 {
     //Empty!
-}
+} 
 
 ListaUniversidades::~ListaUniversidades()
 {
@@ -24,8 +24,8 @@ void ListaUniversidades::incluaUniversidade(Universidade* pu)
         cout << "invalid pointer" << endl;
     }
 }
-
-void ListaUniversidades::listar()
+ 
+void ListaUniversidades::listeUniversidades()
 {
     Elemento<Universidade>* pElaux = LUniversidade.getPrimeiro();
     Universidade* pUniv; 
@@ -36,3 +36,13 @@ void ListaUniversidades::listar()
         pElaux = pElaux -> getProximo();
     }
 }
+ 
+void ListaUniversidades::deleteUniversidades()
+{
+    LUniversidade.deleteObjetos();
+}
+
+Universidade* ListaUniversidades::localizar(char* n)
+{
+    return LUniversidade.localizar(n);
+} 
