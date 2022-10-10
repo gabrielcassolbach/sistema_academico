@@ -1,5 +1,6 @@
+#include "stdafx.h"
 #include "ListaDisciplinas.h"
-
+   
 ListaDisciplinas::ListaDisciplinas()
 {
     //Empty!
@@ -23,7 +24,7 @@ void ListaDisciplinas::incluaDisciplina(Disciplina* pd)
         cout << "not included discipline!" << endl;
         cout << "invalid pointer" << endl;
     }    
-}
+} 
 
 void ListaDisciplinas::listeDisciplinas()
 {

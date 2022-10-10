@@ -10,6 +10,7 @@ private:
 	int contador_alunos;
 	ListaAlunos LAlunos;
 	
+	
 public:
 	Disciplina(int na, char* c);
 	Disciplina();

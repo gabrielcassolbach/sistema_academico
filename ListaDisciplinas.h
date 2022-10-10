@@ -1,8 +1,7 @@
 #pragma once
-#include "stdafx.h"
 #include "Lista.h"
 #include "Disciplina.h"
-
+  
 class ListaDisciplinas
 {
 private:

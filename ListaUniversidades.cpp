@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "ListaUniversidades.h"
 
 ListaUniversidades::ListaUniversidades()
@@ -35,6 +36,7 @@ void ListaUniversidades::listeUniversidades()
             << endl;
         pElaux = pElaux -> getProximo();
     }
+    getchar();
 }
  
 void ListaUniversidades::deleteUniversidades()

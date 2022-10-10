@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "Lista.h"
 #include "Universidade.h"
 
